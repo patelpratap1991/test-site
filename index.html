@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TvaNya Technologies | Modern IT Solutions</title>
+    <meta
+      name="description"
+      content="TvaNya Technologies provides custom web applications, software development, API development, and IT consulting services."
+    />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/bootstrap-5.3.8/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <style>
+      :root {
+        --brand-blue: #1f5fb8;
+        --brand-green: #6cb436;
+        --brand-dark: #0f172a;
+        --brand-text: #475569;
+        --brand-soft: #f8fbff;
+        --brand-soft-2: #f4f9f2;
+        --brand-border: rgba(148, 163, 184, 0.18);
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--brand-dark);
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* =========================
+           Navbar
+        ========================= */
+      .site-header {
+        position: fixed;
+        top: 16px;
+        left: 0;
+        right: 0;
+        z-index: 1100;
+        padding: 0 28px;
+        transition: all 0.3s ease;
+      }
+
+      .main-navbar {
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        border-radius: 24px;
+        padding: 10px 14px;
+        transition: all 0.3s ease;
+      }
+
+      .site-header.scrolled .main-navbar {
+        background: rgba(241, 245, 249, 0.95);
+        border-color: rgba(203, 213, 225, 0.88);
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+      }
+
+      .navbar-brand {
+        margin-right: 0;
+      }
+
+      .brand-logo-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(31, 95, 184, 0.08),
+          rgba(108, 180, 54, 0.1)
+        );
+        border: 1px solid rgba(31, 95, 184, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .site-header.scrolled .brand-logo-wrap {
+        background: rgba(255, 255, 255, 0.76);
+        border-color: rgba(203, 213, 225, 0.85);
+      }
+
+      .brand-logo {
+        height: 75px;
+        width: auto;
+        max-width: 320px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-toggler {
+        border: 1px solid rgba(31, 95, 184, 0.14);
+        border-radius: 14px;
+        padding: 8px 10px;
+        box-shadow: none !important;
+      }
+
+      .navbar-toggler-icon {
+        width: 1.2em;
+        height: 1.2em;
+      }
+
+      .navbar-collapse-panel {
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .navbar-nav {
+        gap: 4px;
+      }
+
+      .navbar-nav .nav-link {
+        color: #334155;
+        font-size: 0.96rem;
+        font-weight: 600;
+        padding: 10px 16px !important;
+        border-radius: 999px;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--brand-blue);
+        background: rgba(31, 95, 184, 0.08);
+      }
+
+      .navbar-nav .nav-link.active {
+        color: #ffffff !important;
+        background: linear-gradient(135deg, var(--brand-blue), #2a69c8);
+        box-shadow: 0 8px 18px rgba(31, 95, 184, 0.22);
+      }
+
+      .social-list {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 14px;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--brand-dark);
+        background: rgba(31, 95, 184, 0.08);
+        border: 1px solid rgba(31, 95, 184, 0.1);
+        font-size: 0.95rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .social-icon:hover {
+        background: var(--brand-blue);
+        border-color: var(--brand-blue);
+        color: #ffffff;
+        transform: translateY(-1px);
+      }
+
+      /* =========================
+           Hero Carousel
+        ========================= */
+      .hero-section {
+        position: relative;
+      }
+
+      .hero-carousel .carousel-item {
+        height: 100vh;
+        min-height: 760px;
+        position: relative;
+      }
+
+      .hero-carousel .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            95deg,
+            rgba(15, 23, 42, 0.82) 0%,
+            rgba(15, 23, 42, 0.58) 42%,
+            rgba(15, 23, 42, 0.18) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(15, 23, 42, 0.1) 0%,
+            rgba(15, 23, 42, 0.22) 100%
+          );
+        z-index: 1;
+      }
+
+      .hero-caption-wrap {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+      }
+
+      .hero-content {
+        max-width: 780px;
+        padding-left: 72px;
+        padding-top: 120px;
+        color: #ffffff;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 10px 18px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 22px;
+      }
+
+      .hero-badge span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand-green);
+        display: inline-block;
+      }
+
+      .hero-content h1 {
+        font-size: 3.8rem;
+        line-height: 1.08;
+        margin-bottom: 18px;
+        font-weight: 700;
+        max-width: 730px;
+      }
+
+      .hero-content p {
+        font-size: 1.08rem;
+        line-height: 1.85;
+        color: rgba(255, 255, 255, 0.92);
+        margin-bottom: 30px;
+        max-width: 650px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-brand {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--brand-blue), #2a69c8);
+        border: none;
+        color: #ffffff;
+        padding: 13px 28px;
+        border-radius: 14px;
+        font-weight: 600;
+        box-shadow: 0 10px 24px rgba(31, 95, 184, 0.22);
+        transition: all 0.3s ease;
+      }
+
+      .btn-brand:hover {
+        color: #ffffff;
+        transform: translateY(-1px);
+        background: linear-gradient(135deg, #184f99, #205db7);
+      }
+
+      .btn-outline-hero {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.38);
+        color: #ffffff;
+        padding: 13px 28px;
+        border-radius: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-hero:hover {
+        background: #ffffff;
+        color: var(--brand-dark);
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 7%;
+        z-index: 3;
+      }
+
+      /* =========================
+           Sections
+        ========================= */
+      .section-padding {
+        padding: 90px 0;
+      }
+
+      .section-soft {
+        background: linear-gradient(
+          135deg,
+          var(--brand-soft),
+          var(--brand-soft-2)
+        );
+      }
+
+      .section-title {
+        font-size: 2.15rem;
+        font-weight: 700;
+        color: var(--brand-dark);
+        margin-bottom: 14px;
+      }
+
+      .section-subtitle {
+        color: var(--brand-text);
+        max-width: 760px;
+        margin: 0 auto 46px;
+        line-height: 1.8;
+      }
+
+      .about-box,
+      .about-logo-box,
+      .service-card,
+      .solution-box,
+      .portfolio-card,
+      .contact-box,
+      .stat-card {
+        background: #ffffff;
+        border-radius: 24px;
+        border: 1px solid rgba(226, 232, 240, 0.85);
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      }
+
+      .about-box,
+      .contact-box {
+        padding: 34px;
+        height: 100%;
+      }
+
+      .about-logo-box {
+        min-height: 100%;
+        padding: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          rgba(31, 95, 184, 0.08),
+          rgba(108, 180, 54, 0.12)
+        );
+      }
+
+      .about-logo-box img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .stats-row {
+        margin-top: 22px;
+      }
+
+      .stat-card {
+        padding: 22px 18px;
+        text-align: center;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card h3 {
+        font-size: 1.9rem;
+        margin-bottom: 6px;
+        color: var(--brand-blue);
+        font-weight: 700;
+      }
+
+      .stat-card p {
+        margin: 0;
+        color: var(--brand-text);
+        font-size: 0.95rem;
+      }
+
+      .service-card,
+      .solution-box {
+        padding: 30px 24px;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover,
+      .solution-box:hover,
+      .portfolio-card:hover,
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 38px rgba(15, 23, 42, 0.09);
+      }
+
+      .service-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 24px;
+        width: 56px;
+        height: 4px;
+        border-radius: 10px;
+        background: linear-gradient(
+          to right,
+          var(--brand-blue),
+          var(--brand-green)
+        );
+      }
+
+      .service-icon,
+      .contact-info-icon,
+      .solution-icon {
+        width: 62px;
+        height: 62px;
+        border-radius: 18px;
+        background: linear-gradient(
+          135deg,
+          rgba(31, 95, 184, 0.12),
+          rgba(108, 180, 54, 0.18)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--brand-blue);
+        margin-bottom: 18px;
+        flex-shrink: 0;
+      }
+
+      .service-card h4,
+      .solution-box h4,
+      .portfolio-card h4 {
+        font-size: 1.18rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .service-card p,
+      .solution-box p,
+      .portfolio-card p,
+      .contact-info-item p {
+        color: var(--brand-text);
+        line-height: 1.75;
+        margin-bottom: 0;
+      }
+
+      .list-check {
+        list-style: none;
+        padding: 0;
+        margin: 22px 0 0;
+      }
+
+      .list-check li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
+        color: var(--brand-text);
+        line-height: 1.7;
+      }
+
+      .list-check li span {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--brand-blue),
+          var(--brand-green)
+        );
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        margin-top: 2px;
+      }
+
+      .portfolio-card {
+        overflow: hidden;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .portfolio-card .content {
+        padding: 24px;
+      }
+
+      .contact-info-item {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .contact-info-item h5 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .form-control,
+      .form-select {
+        min-height: 52px;
+        border-radius: 12px;
+        border: 1px solid #dbe2ea;
+        box-shadow: none;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--brand-blue);
+        box-shadow: 0 0 0 0.15rem rgba(31, 95, 184, 0.14);
+      }
+
+      textarea.form-control {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .cta-strip {
+        border-radius: 30px;
+        background: linear-gradient(
+          135deg,
+          var(--brand-blue),
+          var(--brand-green)
+        );
+        color: #ffffff;
+        padding: 52px 34px;
+        box-shadow: 0 18px 36px rgba(31, 95, 184, 0.18);
+      }
+
+      .cta-strip h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .cta-strip p {
+        margin-bottom: 0;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      /* =========================
+           Footer
+        ========================= */
+      .footer {
+        background: #1e293b;
+        color: rgba(255, 255, 255, 0.88);
+        padding: 70px 0 26px;
+      }
+
+      .footer-logo {
+        max-width: 240px;
+        height: auto;
+        display: block;
+        margin-bottom: 18px;
+      }
+
+      .footer h5 {
+        color: #ffffff;
+        margin-bottom: 16px;
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.86);
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #ffffff;
+      }
+
+      .footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        margin-top: 30px;
+        padding-top: 18px;
+      }
+
+      /* =========================
+           Responsive
+        ========================= */
+      @media (max-width: 1199.98px) {
+        .brand-logo {
+          height: 68px;
+          max-width: 290px;
+        }
+
+        .hero-content {
+          max-width: 640px;
+          padding-left: 50px;
+          padding-top: 120px;
+        }
+
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .site-header {
+          top: 12px;
+          padding: 0 16px;
+        }
+
+        .main-navbar {
+          padding: 12px;
+        }
+
+        .navbar-collapse-panel {
+          padding-top: 14px;
+          border-top: 1px solid rgba(203, 213, 225, 0.65);
+          margin-top: 12px;
+        }
+
+        .nav-actions {
+          width: 100%;
+          justify-content: center;
+          padding-top: 10px;
+        }
+
+        .social-list {
+          margin-left: 0;
+        }
+
+        .hero-carousel .carousel-item {
+          min-height: 860px;
+        }
+
+        .hero-content {
+          padding: 145px 26px 0;
+          max-width: 100%;
+          text-align: center;
+          margin: 0 auto;
+        }
+
+        .hero-btns {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .site-header {
+          top: 10px;
+          padding: 0 12px;
+        }
+
+        .brand-logo {
+          height: 58px;
+          max-width: 240px;
+        }
+
+        .navbar-nav .nav-link {
+          font-size: 0.92rem;
+          padding: 8px 12px !important;
+        }
+
+        .social-icon {
+          width: 38px;
+          height: 38px;
+        }
+
+        .hero-carousel .carousel-item {
+          height: 92vh;
+          min-height: 760px;
+        }
+
+        .hero-content h1 {
+          font-size: 2.15rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+          line-height: 1.75;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .site-header {
+          top: 8px;
+          padding: 0 10px;
+        }
+
+        .brand-logo {
+          height: 52px;
+          max-width: 210px;
+        }
+
+        .hero-content {
+          padding: 150px 18px 0;
+        }
+
+        .hero-content h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+        }
+
+        .btn-brand,
+        .btn-outline-hero {
+          width: 100%;
+        }
+
+        .cta-strip {
+          padding: 36px 22px;
+        }
+
+        .cta-strip h2 {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand" href="#home">
+            <span class="brand-logo-wrap">
+              <img
+                src="images/logo.png"
+                alt="TvaNya Technologies Logo"
+                class="brand-logo"
+              />
+            </span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbarContent"
+            aria-controls="mainNavbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse navbar-collapse-panel"
+            id="mainNavbarContent"
+          >
+            <ul class="navbar-nav ms-auto me-lg-3">
+              <li class="nav-item">
+                <a class="nav-link nav-link-item active" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-item" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-item" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-item" href="#solutions"
+                  >Solutions</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-item" href="#portfolio"
+                  >Portfolio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-item" href="#contact">Contact</a>
+              </li>
+            </ul>
+
+            <div class="nav-actions">
+              <div class="social-list">
+                <a
+                  href="javascript:void(0);"
+                  class="social-icon"
+                  aria-label="Brand Icon"
+                >
+                  <img src="images/favicon.png" alt="icon" />
+                </a>
+                <a
+                  href="javascript:void(0);"
+                  class="social-icon"
+                  aria-label="Instagram"
+                  >◎</a
+                >
+                <a
+                  href="javascript:void(0);"
+                  class="social-icon"
+                  aria-label="LinkedIn"
+                  >in</a
+                >
+                <a
+                  href="javascript:void(0);"
+                  class="social-icon"
+                  aria-label="Twitter"
+                  >𝕏</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero-section" id="home">
+      <div
+        id="mainHeroCarousel"
+        class="carousel slide carousel-fade hero-carousel"
+        data-bs-ride="carousel"
+        data-bs-interval="4500"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/logo.png" alt="TvaNya Technologies" />
+            <div class="hero-overlay"></div>
+            <div class="hero-caption-wrap">
+              <div class="hero-content">
+                <div class="hero-badge">
+                  <span></span> Modern Web, Software & API Solutions
+                </div>
+                <h1>
+                  Professional Digital Solutions Built for Modern Business
+                  Growth
+                </h1>
+                <p>
+                  TvaNya Technologies creates custom web applications, software
+                  systems, API solutions, and consulting services that help
+                  businesses move with clarity, confidence, and long-term value.
+                </p>
+                <div class="hero-btns">
+                  <a href="#contact" class="btn-brand">Start Your Project</a>
+                  <a href="#services" class="btn-outline-hero"
+                    >Explore Services</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/favicon.png" alt="Software Solutions" />
+            <div class="hero-overlay"></div>
+            <div class="hero-caption-wrap">
+              <div class="hero-content">
+                <div class="hero-badge">
+                  <span></span> Reliable Software Delivery
+                </div>
+                <h1>
+                  Scalable Systems, Better Workflows, Smarter Digital Operations
+                </h1>
+                <p>
+                  We help organizations simplify business processes, improve
+                  digital efficiency, and build strong technical foundations
+                  through tailored software and integrations.
+                </p>
+                <div class="hero-btns">
+                  <a href="#solutions" class="btn-brand">View Solutions</a>
+                  <a href="#about" class="btn-outline-hero">Know More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="images/logo.png" alt="IT Consulting" />
+            <div class="hero-overlay"></div>
+            <div class="hero-caption-wrap">
+              <div class="hero-content">
+                <div class="hero-badge">
+                  <span></span> Consulting & API Integration
+                </div>
+                <h1>
+                  Technology That Supports Business Instead of Complicating It
+                </h1>
+                <p>
+                  From planning and consulting to implementation and support, we
+                  build digital solutions designed around practical business
+                  requirements.
+                </p>
+                <div class="hero-btns">
+                  <a href="#contact" class="btn-brand">Book Consultation</a>
+                  <a href="#portfolio" class="btn-outline-hero"
+                    >See Highlights</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#mainHeroCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#mainHeroCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section-padding section-soft" id="about">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="about-logo-box">
+              <img src="images/logo.png" alt="TvaNya Technologies Logo" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="about-box">
+              <h2 class="section-title mb-3">About TvaNya Technologies</h2>
+              <p
+                class="section-subtitle text-start mb-3"
+                style="max-width: none"
+              >
+                We are a service-based IT company focused on delivering custom
+                web applications, software solutions, API systems, and
+                consulting services.
+              </p>
+              <p
+                style="
+                  color: var(--brand-text);
+                  line-height: 1.85;
+                  margin-bottom: 0;
+                "
+              >
+                Our work is built around real business goals. We do not just
+                create software. We nurture solutions that help organizations
+                improve operations, strengthen digital presence, and scale with
+                confidence.
+              </p>
+
+              <ul class="list-check">
+                <li>
+                  <span>✓</span> Tailored development for real business
+                  requirements
+                </li>
+                <li>
+                  <span>✓</span> Scalable systems designed for future growth
+                </li>
+                <li>
+                  <span>✓</span> Professional communication and dependable
+                  delivery
+                </li>
+                <li>
+                  <span>✓</span> Practical consulting that supports better
+                  technical decisions
+                </li>
+              </ul>
+
+              <div class="row g-3 stats-row">
+                <div class="col-sm-4">
+                  <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Custom Approach</p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="stat-card">
+                    <h3>Web</h3>
+                    <p>Software & APIs</p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="stat-card">
+                    <h3>Focused</h3>
+                    <p>Quality Delivery</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section-padding" id="services">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">Our Core Services</h2>
+          <p class="section-subtitle">
+            We provide focused IT services that help businesses move from idea
+            to execution with better systems, cleaner architecture, and
+            practical results.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <div class="service-icon">W</div>
+              <h4>Web Application Development</h4>
+              <p>
+                Responsive and business-focused web applications designed for
+                performance, usability, and long-term maintainability.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <div class="service-icon">S</div>
+              <h4>Software Development</h4>
+              <p>
+                Custom software solutions built around workflows, operations,
+                team productivity, and business-specific needs.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <div class="service-icon">A</div>
+              <h4>API Development</h4>
+              <p>
+                Reliable API solutions and integrations that improve automation,
+                system communication, and connected business processes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section-padding section-soft" id="solutions">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">Solutions We Build</h2>
+          <p class="section-subtitle">
+            We create modern digital solutions that are clean, scalable,
+            practical, and aligned with how businesses operate in the real
+            world.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="solution-box">
+              <div class="solution-icon">B</div>
+              <h4>Business Platforms</h4>
+              <p>
+                Internal systems for approvals, reporting, operations, and
+                workflow management that improve efficiency.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="solution-box">
+              <div class="solution-icon">P</div>
+              <h4>Client Portals</h4>
+              <p>
+                Secure portals for customers, partners, and teams with a clear
+                user experience and reliable access.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="solution-box">
+              <div class="solution-icon">I</div>
+              <h4>Integrations</h4>
+              <p>
+                Connected platforms and APIs that reduce manual effort and
+                improve communication between systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="solution-box">
+              <div class="solution-icon">C</div>
+              <h4>Consulting Support</h4>
+              <p>
+                Technical planning, modernization strategy, and solution
+                guidance based on practical business needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section-padding" id="portfolio">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">Project Highlights</h2>
+          <p class="section-subtitle">
+            Showcase selected work, featured case studies, or product snapshots
+            to build trust and demonstrate your expertise.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="portfolio-card">
+              <img src="images/logo.png" alt="Business Platform" />
+              <div class="content">
+                <h4>Custom Business Platform</h4>
+                <p>
+                  A tailored internal system designed to improve workflow
+                  visibility, task management, and operational efficiency.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="portfolio-card">
+              <img src="images/favicon.png" alt="API Integration" />
+              <div class="content">
+                <h4>API Integration Solution</h4>
+                <p>
+                  A connected architecture that streamlined communication and
+                  data flow across multiple business systems.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="portfolio-card">
+              <img src="images/logo.png" alt="Client Portal" />
+              <div class="content">
+                <h4>Client Web Portal</h4>
+                <p>
+                  A responsive portal experience designed for secure access,
+                  support requests, and better client interaction.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section-padding section-soft" id="contact">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            Share your project idea or business requirement and let’s build the
+            right digital solution together.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="contact-box">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">✉</div>
+                <div>
+                  <h5>Email Address</h5>
+                  <p>info@tvanyatechnologies.com</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">☎</div>
+                <div>
+                  <h5>Phone Number</h5>
+                  <p>+91 00000 00000</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">⌂</div>
+                <div>
+                  <h5>Location</h5>
+                  <p>Ahmedabad, Gujarat, India</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item mb-0">
+                <div class="contact-info-icon">✓</div>
+                <div>
+                  <h5>Business Focus</h5>
+                  <p>Web • Software • API • Consulting</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="contact-box">
+              <form action="#contact" method="post">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <select class="form-select">
+                      <option selected disabled>Select Service</option>
+                      <option>Web Application Development</option>
+                      <option>Software Development</option>
+                      <option>API Development</option>
+                      <option>IT Consulting</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Subject"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <textarea
+                      class="form-control"
+                      placeholder="Tell us about your requirement"
+                    ></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn-brand">
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding pt-0">
+      <div class="container">
+        <div class="cta-strip text-center">
+          <h2>Need a Modern, Reliable Technology Partner?</h2>
+          <p>
+            Let’s create a web, software, or API solution that supports your
+            business today and grows with your future goals.
+          </p>
+          <div class="hero-btns justify-content-center mt-4">
+            <a href="#contact" class="btn-brand">Request Consultation</a>
+            <a href="#services" class="btn-outline-hero">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <img
+              src="images/logo.png"
+              alt="TvaNya Technologies"
+              class="footer-logo"
+            />
+            <p>
+              TvaNya Technologies provides custom web applications, software
+              development, API integration, and IT consulting services.
+            </p>
+            <p class="mb-0">Where Technology Nurtures Solutions</p>
+          </div>
+
+          <div class="col-sm-6 col-lg-2">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#solutions">Solutions</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6 col-lg-3">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">Software Development</a></li>
+              <li><a href="#services">API Development</a></li>
+              <li><a href="#services">Consulting</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h5>Contact</h5>
+            <ul>
+              <li>
+                <a href="mailto:info@tvanyatechnologies.com"
+                  >info@tvanyatechnologies.com</a
+                >
+              </li>
+              <li><a href="tel:+910000000000">+91 00000 00000</a></li>
+              <li><a href="#contact">Ahmedabad, Gujarat, India</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="mb-md-0 mb-2">
+                © 2026 TvaNya Technologies. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <a href="javascript:void(0);" class="me-3">Privacy Policy</a>
+              <a href="javascript:void(0);">Terms & Conditions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/bootstrap-5.3.8/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link-item");
+        const header = document.getElementById("siteHeader");
+        const navCollapse = document.getElementById("mainNavbarContent");
+
+        function setActiveMenu() {
+          let current = "home";
+          const scrollY = window.pageYOffset;
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 190;
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + current) {
+              link.classList.add("active");
+            }
+          });
+        }
+
+        function setHeaderState() {
+          if (window.scrollY > 40) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        }
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            if (
+              window.innerWidth < 992 &&
+              navCollapse.classList.contains("show")
+            ) {
+              const collapseInstance =
+                bootstrap.Collapse.getInstance(navCollapse) ||
+                new bootstrap.Collapse(navCollapse, { toggle: false });
+              collapseInstance.hide();
+            }
+          });
+        });
+
+        window.addEventListener("scroll", function () {
+          setActiveMenu();
+          setHeaderState();
+        });
+
+        setActiveMenu();
+        setHeaderState();
+      });
+    </script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
